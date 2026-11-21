@@ -1,0 +1,19 @@
+# Archivos generados por MPS (se regeneran con Build -> Rebuild Project)
+source_gen/
+source_gen.caches/
+classes_gen/
+**/source_gen/
+**/source_gen.caches/
+**/classes_gen/
+**/test_gen/
+**/test_gen.caches/
+
+# Configuración personal de cada integrante
+.mps/workspace.xml
+.mps/shelf/
+*.iml
+out/
+
+# Windows
+Thumbs.db
+desktop.ini
