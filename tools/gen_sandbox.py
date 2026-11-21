@@ -147,7 +147,8 @@ MODELS = {
     ],
 }
 
-out = sys.argv[2]
-with open(out, "w", encoding="utf-8") as fh:
-    json.dump(MODELS[sys.argv[1]], fh, ensure_ascii=False)
-print(out)
+if __name__ == "__main__":
+    out = sys.argv[2]
+    with open(out, "w", encoding="utf-8") as fh:
+        json.dump(MODELS[sys.argv[1]], fh, ensure_ascii=False)
+    print(out)

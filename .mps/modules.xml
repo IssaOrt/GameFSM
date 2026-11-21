@@ -4,6 +4,7 @@
     <projectModules>
       <modulePath path="$PROJECT_DIR$/languages/gamefsm.sandbox/gamefsm.sandbox.msd" folder="" />
       <modulePath path="$PROJECT_DIR$/languages/gamefsm/gamefsm.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/gamefsm.tests/gamefsm.tests.msd" folder="" />
     </projectModules>
   </component>
 </project>
