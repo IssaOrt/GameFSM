@@ -81,6 +81,70 @@ MODELS = {
                    ("Huir", "tiempoAgotado", None, "Patrullar", [])]),
         scenario("Pelea", "Goblin", ["verJugador", "verJugador"] + ["recibirGolpe"] * 5),
     ],
+    # Valido 2: automata puro (sin variables) -> caso decidible
+    "guardia": [
+        character("GuardiaNPC", [],
+                  ["oirRuido", "verIntruso", "perderIntruso", "capturar", "calma"],
+                  [("inicial", "Vigilar"), ("normal", "Alerta"), ("normal", "Persecucion"),
+                   ("final", "Neutralizado")],
+                  [("Vigilar", "oirRuido", None, "Alerta", []),
+                   ("Alerta", "verIntruso", None, "Persecucion", []),
+                   ("Alerta", "calma", None, "Vigilar", []),
+                   ("Persecucion", "perderIntruso", None, "Alerta", []),
+                   ("Persecucion", "capturar", None, "Neutralizado", [])]),
+        scenario("Ronda", "GuardiaNPC", ["oirRuido", "calma", "oirRuido", "verIntruso",
+                                         "perderIntruso", "verIntruso", "capturar"]),
+    ],
+    # Valido 3: jefe con fases, varias guardas que NO se solapan
+    "jefe": [
+        character("JefeFinal",
+                  [("vida", "entero", 300), ("enrage", "booleano", False)],
+                  ["golpe", "curarse", "tiempo"],
+                  [("inicial", "Fase1"), ("normal", "Fase2"), ("normal", "Fase3"), ("final", "Derrotado")],
+                  [("Fase1", "golpe", (">", "vida", 200), "Fase1", [("vida", ("-", "vida", 50))]),
+                   ("Fase1", "golpe", ("<=", "vida", 200), "Fase2", [("vida", ("-", "vida", 50)), ("enrage", True)]),
+                   ("Fase2", "golpe", ("and", (">", "vida", 100), "enrage"), "Fase2", [("vida", ("-", "vida", 40))]),
+                   ("Fase2", "golpe", ("<=", "vida", 100), "Fase3", [("vida", ("-", "vida", 40))]),
+                   ("Fase2", "curarse", ("==", "enrage", False), "Fase1", [("vida", ("+", "vida", 50))]),
+                   ("Fase3", "golpe", (">", "vida", 0), "Fase3", [("vida", ("-", "vida", 30))]),
+                   ("Fase3", "golpe", ("<=", "vida", 0), "Derrotado", []),
+                   ("Fase3", "tiempo", None, "Fase2", [])]),
+        scenario("BatallaFinal", "JefeFinal", ["golpe"] * 9),
+    ],
+    # Invalido 1: errores de TIPOS
+    "invalido_tipos": [
+        character("GoblinMalTipado",
+                  [("vida", "entero", 100), ("tieneArma", "booleano", True), ("escudo", "entero", False)],
+                  ["verJugador", "recibirGolpe"],
+                  [("inicial", "Patrullar"), ("normal", "Atacar"), ("final", "Muerto")],
+                  [("Patrullar", "verJugador", ("+", "vida", 5), "Atacar", []),
+                   ("Atacar", "recibirGolpe", (">", "tieneArma", 3), "Muerto", [("vida", True)])]),
+    ],
+    # Invalido 2: errores de CONTEXTO (dos iniciales, nombre duplicado, salida desde final)
+    "invalido_contexto": [
+        character("OrcoConfundido", [],
+                  ["ruido", "golpe"],
+                  [("inicial", "Dormir"), ("inicial", "Despertar"), ("normal", "Pelear"),
+                   ("normal", "Pelear"), ("final", "Muerto")],
+                  [("Dormir", "golpe", None, "Muerto", []),
+                   ("Despertar", "ruido", None, "Dormir", []),
+                   ("Muerto", "golpe", None, "Dormir", [])]),
+    ],
+    # Invalido 3: errores que encuentra el RAZONADOR
+    "invalido_razonador": [
+        character("DragonBug", [("vida", "entero", 100)],
+                  ["verJugador", "recibirGolpe", "enfadarse", "cantar"],
+                  [("inicial", "Patrullar"), ("normal", "Perseguir"), ("normal", "Atacar"),
+                   ("normal", "Huir"), ("normal", "Bailar"), ("normal", "Furia"), ("final", "Muerto")],
+                  [("Patrullar", "verJugador", None, "Perseguir", []),
+                   ("Perseguir", "verJugador", (">", "vida", 30), "Atacar", []),
+                   ("Perseguir", "verJugador", (">=", "vida", 20), "Huir", []),
+                   ("Atacar", "recibirGolpe", None, "Muerto", []),
+                   ("Atacar", "recibirGolpe", None, "Huir", []),
+                   ("Atacar", "enfadarse", None, "Furia", []),
+                   ("Furia", "enfadarse", None, "Furia", []),
+                   ("Bailar", "recibirGolpe", None, "Muerto", [])]),
+    ],
 }
 
 out = sys.argv[2]
