@@ -112,7 +112,7 @@ story += [Spacer(1, 2.0 * inch),
           P("Santiago Reina Aguilar, Valentina Camila Martínez Cantor y Kiara Issari Ortiz Beltrán", center),
           P("Facultad de Ingeniería, Universidad El Bosque", center),
           P("Compiladores y Teoría de la Computación", center),
-          P("Docente: ____________________", center),
+          P("Docente: Helio Ramírez", center),
           P("24 de noviembre de 2026", center),
           PageBreak()]
 
@@ -216,10 +216,8 @@ story.append(P(
     "errores, y tres inválidos: GoblinMalTipado (cuatro errores de tipos), OrcoConfundido (dos estados iniciales, "
     "nombre duplicado y salida desde un estado final) y DragonBug (deadlock, dos no determinismos, un estado "
     "inalcanzable, una trampa y un evento sin usar), todos detectados. El generador (TextGen) produce, mediante "
-    "traducción dirigida por la sintaxis, una clase Java ejecutable por personaje y un reporte Markdown con el "
-    "análisis y la traza; la clase compilada reproduce exactamente la traza del simulador. Las pruebas con "
-    "jetbrains.mps.lang.test (13 casos con un único defecto inyectado y 4 de inferencia y simulación) pasan "
-    "17 de 17."))
+    "traducción dirigida por la sintaxis, una clase Java ejecutable y un reporte con el análisis y la traza, "
+    "que coincide con la del simulador. Las 17 pruebas con jetbrains.mps.lang.test pasan."))
 
 story.append(P("Decidibilidad, Limitaciones y Trabajo Futuro", h1))
 story.append(P(
@@ -228,8 +226,7 @@ story.append(P(
     "contadores de Minsky, equivalente a una máquina de Turing (Minsky, 1967); por el teorema de Rice, la "
     "alcanzabilidad exacta es indecidible en general (Rice, 1953; Sipser, 2013). Por ello el verificador es "
     "estructural y el análisis de guardas se limita a comparaciones con constantes. Como trabajo futuro se "
-    "propone acotar los dominios (p. ej., " + M("vida ∈ [0, 100]") + ") para hacer verificación de modelos "
-    "exhaustiva y usar un solucionador SMT para decidir el solapamiento de guardas arbitrarias."))
+    "propone acotar los dominios para una verificación de modelos exhaustiva y usar un solucionador SMT."))
 
 story.append(apa_table(3, "Roles del Equipo", [
     ["Integrante", "Rol principal", "En el video"],
@@ -240,12 +237,15 @@ story.append(apa_table(3, "Roles del Equipo", [
     ["Kiara Issari Ortiz Beltrán", "Razonador, simulador, generador e integración",
      "Razonador, simulación y análisis crítico"],
 ], [2.0 * inch, 2.35 * inch, 2.15 * inch]))
+story.append(P(
+    "<b>Declaración de uso de inteligencia artificial.</b> El diseño del lenguaje (conceptos, reglas del razonador y casos de prueba) fue definido por el equipo. Se utilizó Claude (Anthropic, 2026) como asistente de IA para apoyar la implementación en MPS y la redacción de este documento; el equipo revisó, ejecutó y validó todos los resultados.", note))
 
 story.append(PageBreak())
 story.append(P("Referencias", h1))
 for r in [
     "Aho, A. V., Lam, M. S., Sethi, R., &amp; Ullman, J. D. (2007). <i>Compilers: Principles, techniques, and tools</i> "
     "(2.ª ed.). Pearson.",
+    "Anthropic. (2026). <i>Claude</i> (versión Opus 5.5) [Modelo de lenguaje grande]. https://claude.ai",
     "Fowler, M. (2010). <i>Domain-specific languages</i>. Addison-Wesley.",
     "Hopcroft, J. E., Motwani, R., &amp; Ullman, J. D. (2007). <i>Introduction to automata theory, languages, and "
     "computation</i> (3.ª ed.). Pearson.",
