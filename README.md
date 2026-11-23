@@ -58,8 +58,7 @@ GameFSM/
 │   └── gamefsm.sandbox.invalidos inválidos: GoblinMalTipado, OrcoConfundido, DragonBug
 ├── solutions/gamefsm.tests/      pruebas con jetbrains.mps.lang.test (17 casos)
 ├── ejemplos_generados/           archivos .java y .md producidos por el generador
-├── docs/                         documento técnico (PDF, APA 7)
-└── tools/                        scripts auxiliares para generar modelos y pruebas
+└── docs/                         documento técnico (PDF, APA 7)
 ```
 
 ## Cómo usarlo
