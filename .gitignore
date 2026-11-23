@@ -17,3 +17,9 @@ out/
 # Windows
 Thumbs.db
 desktop.ini
+
+# Configuracion local de herramientas del editor
+.agents/
+.claude/
+CLAUDE.md
+AGENTS.md
