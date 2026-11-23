@@ -12,7 +12,7 @@ _Generado automaticamente por GameFSM._
 
 ## 2. Verificacion de consistencia
 
-- Estados alcanzables desde q0 (BFS): Fase2, Derrotado, Fase3, Fase1
+- Estados alcanzables desde q0 (BFS): Fase1, Fase2, Fase3, Derrotado
 - Estados inalcanzables: (ninguno)
 
 ### Errores

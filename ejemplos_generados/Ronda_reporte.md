@@ -12,7 +12,7 @@ _Generado automaticamente por GameFSM._
 
 ## 2. Verificacion de consistencia
 
-- Estados alcanzables desde q0 (BFS): Alerta, Persecucion, Vigilar, Neutralizado
+- Estados alcanzables desde q0 (BFS): Vigilar, Alerta, Persecucion, Neutralizado
 - Estados inalcanzables: (ninguno)
 
 ### Errores

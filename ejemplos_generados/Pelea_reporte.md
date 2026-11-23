@@ -12,7 +12,7 @@ _Generado automaticamente por GameFSM._
 
 ## 2. Verificacion de consistencia
 
-- Estados alcanzables desde q0 (BFS): Huir, Muerto, Atacar, Patrullar, Perseguir
+- Estados alcanzables desde q0 (BFS): Patrullar, Perseguir, Atacar, Huir, Muerto
 - Estados inalcanzables: (ninguno)
 
 ### Errores

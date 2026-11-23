@@ -976,13 +976,6 @@
       </node>
       <node concept="3Tm6S6" id="376SzOatTHY" role="1B3o_S" />
     </node>
-    <node concept="312cEg" id="376SzOatTHZ" role="jymVt">
-      <property role="TrG5h" value="myContext" />
-      <node concept="3uibUv" id="376SzOatTI1" role="1tU5fm">
-        <ref role="3uigEE" to="cj4x:~EditorContext" resolve="EditorContext" />
-      </node>
-      <node concept="3Tm6S6" id="376SzOatTI2" role="1B3o_S" />
-    </node>
     <node concept="3clFbW" id="376SzOatTI3" role="jymVt">
       <node concept="3cqZAl" id="376SzOatTI4" role="3clF45" />
       <node concept="37vLTG" id="376SzOatTI5" role="3clF46">
@@ -1005,16 +998,6 @@
             </node>
             <node concept="37vLTw" id="376SzOatTId" role="37vLTx">
               <ref role="3cqZAo" node="376SzOatTI5" resolve="character" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="376SzOatTIe" role="3cqZAp">
-          <node concept="37vLTI" id="376SzOatTIf" role="3clFbG">
-            <node concept="37vLTw" id="376SzOatTIg" role="37vLTJ">
-              <ref role="3cqZAo" node="376SzOatTHZ" resolve="myContext" />
-            </node>
-            <node concept="37vLTw" id="376SzOatTIh" role="37vLTx">
-              <ref role="3cqZAo" node="376SzOatTI7" resolve="context" />
             </node>
           </node>
         </node>
