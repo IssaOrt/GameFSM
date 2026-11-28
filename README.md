@@ -84,5 +84,5 @@ GameFSM/
 ## Autores
 
 - Santiago Reina Aguilar
-- Valentina Camila Martínez Cantor
+- Camila Valentina Martínez Cantor
 - Kiara Issari Ortiz Beltrán
